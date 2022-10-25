@@ -1,0 +1,19 @@
+#:include Resources/views/itsMapView.kv
+
+# Inherits from ScreenManager class
+MDBottomNavigation:
+    # Inherits from Screen
+    MDBottomNavigationItem:
+        text: "Map"
+        name: "neighborsMap"
+        icon: "map-marker"
+        BoxLayout:
+            orientation: 'vertical'
+            size: root.size
+            # MDToolbar at the top
+            MDTopAppBar:
+                title: 'Collision Warning Application'
+                md_bg_color: app.theme_cls.primary_color
+                anchor_title: "center"
+            ITSMapView:
+                id: mapview

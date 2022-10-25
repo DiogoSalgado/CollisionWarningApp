@@ -1,0 +1,25 @@
+#:import MapView kivy_garden.mapview.MapView
+#:import GpsBlinker Resources.lib.gpsblinker.GpsBlinker
+#:include Resources/lib/gpsblinker.kv
+
+
+<ITSMapView>:
+    lat: 38.756117
+    lon: -9.116923
+    zoom: 18
+    on_zoom:
+        # set minimum zoom to 10
+        self.zoom = 15 if self.zoom < 15 else self.zoom
+    # on_lat:
+        # get messages in field of view
+        # self.callback(0.5)
+    # on_lon:
+        # get messages in field of view
+        # self.callback(0.5)
+    GpsBlinker:
+        id: blinker
+    GpsHelper:
+        icon: "crosshairs-gps"
+        id: gpsbutton
+        on_press:
+            self.center_with_gps()
